@@ -1,68 +1,80 @@
-# goruntu-siniflandirici-gradio
-görüntü siniflandirma ile araç tanıma
-Gradio ile Yapay Zeka Destekli Görüntü Sınıflandırıcı
-Bu proje, kullanıcıların yükledikleri görselleri sınıflandırabilen bir yapay zeka uygulamasıdır. Sistem, görüntüleri ön işleme tabi tutarak sınıflandırır ve sonuçları kullanıcıya Gradio arayüzü ile sunar.
-Özellikler
+🚗 Akıllı Araç Tanıma Sistemi
+Bu proje, yüklenen görsellerdeki araçları yapay zeka modelleri kullanarak tanımlayan bir web uygulamasıdır.
+📋 Proje Açıklaması
+Akıllı Araç Tanıma Sistemi, kullanıcıların yükledikleri görsellerdeki araçları tespit eden ve sınıflandıran bir yapay zeka uygulamasıdır. Uygulama, iki farklı model seçeneği sunarak kullanıcılara farklı sınıflandırma yaklaşımları arasında tercih yapma imkanı sağlar:
 
-Kullanıcıların bilgisayarından görüntü yükleyebilmesi
-Görüntülerin otomatik olarak ön işlenmesi (boyutlandırma, normalleştirme)
-İki farklı model seçeneği:
+ResNet50 (Sadece Araçlar): Bu model, özellikle araç kategorilerine odaklanmıştır ve yalnızca araç sınıflarını (spor araba, minibüs, itfaiye aracı vb.) tespit eder.
+Hugging Face Vision Transformer: Daha genel amaçlı bir görüntü sınıflandırma modeli olup, çeşitli nesneleri tanıyabilir.
 
-ResNet50 (ImageNet üzerinde eğitilmiş)
+🔧 Teknolojiler ve Kütüphaneler
+Bu proje aşağıdaki teknolojileri kullanmaktadır:
+
+Python - Ana programlama dili
+Gradio - Web arayüzü oluşturmak için kullanılan kütüphane
+PyTorch - Derin öğrenme modelleri için kullanılan framework
+torchvision - Görüntü işleme ve hazır modeller için PyTorch kütüphanesi
+ResNet50 - Önceden eğitilmiş derin öğrenme modeli
+Hugging Face API - Vision Transformer modeline erişim için
+PIL (Python Imaging Library) - Görüntü işleme işlemleri için
+NumPy - Sayısal hesaplamalar için
+
+🚀 Kurulum
+Projeyi çalıştırmak için aşağıdaki adımları izleyin:
+
+Bu repoyu klonlayın:
+git clone https://github.com/kullaniciadi/akilli-arac-tanima-sistemi.git
+cd akilli-arac-tanima-sistemi
+
+Gerekli paketleri yükleyin:
+pip install gradio torch torchvision pillow requests numpy
+
+Uygulamayı çalıştırın:
+python app.py
+
+Tarayıcınızda gösterilen adresi açarak uygulamayı kullanmaya başlayabilirsiniz (genellikle http://127.0.0.1:7860).
+
+🖥️ Kullanım
+
+Uygulama arayüzünde "Görüntü Yükle" kısmına bir araç resmi yükleyin.
+"Model Seçimi" kısmından kullanmak istediğiniz modeli seçin:
+
+ResNet50 (Sadece Araçlar)
 Hugging Face Vision Transformer
 
 
-Sınıflandırma sonuçlarının olasılık değerleri ile gösterilmesi
-Kullanıcı dostu Gradio web arayüzü
+"🔍 Sınıflandır" butonuna tıklayın.
+Sonuçları görüntüleyin:
 
-Kurulum
-Gereksinimler
-Projeyi çalıştırmak için Python 3.8+ ve aşağıdaki kütüphanelere ihtiyacınız var:
-bashpip install -r requirements.txt
-Hugging Face API (Opsiyonel)
-Vision Transformer modelini kullanmak için bir Hugging Face API anahtarı almanız önerilir:
+"Tahmin" kısmında tespit edilen araç türü
+"Detaylı Sonuçlar" kısmında olasılık değerleriyle birlikte en yüksek olasılıklı sınıflar
+"Sonuç Görseli" kısmında yüklediğiniz görüntü
 
-Hugging Face üzerinde bir hesap oluşturun
-Ayarlar sayfasından bir API anahtarı edinin
-app.py dosyasındaki ilgili yeri düzenleyin:
 
-python# Satır 85'i değiştirin:
-headers = {"Authorization": f"Bearer hf_your_token_here"}
-Çalıştırma
-Projeyi çalıştırmak için:
-bashpython app.py
-Bu komut, yerel bir Gradio sunucusu başlatacak ve tarayıcınızda uygulamayı açacaktır. Ayrıca uygulamanın geçici bir süre için erişilebileceği bir genel URL de sunacaktır.
-Kullanım
 
-Model seçin (ResNet50 veya Vision Transformer)
-"Bir görüntü yükleyin" alanına tıklayarak veya sürükleyerek bir görüntü yükleyin
-"Görüntüyü Sınıflandır" butonuna tıklayın
-Sonuçları inceleyin
+🌟 Özellikler
 
-Teknik Detaylar
-ResNet50 Modeli
+İki farklı yapay zeka modeli seçeneği
+Araç türlerini yüksek doğrulukla tespit etme
+Basit ve kullanıcı dostu arayüz
+Detaylı sınıflandırma sonuçları
+Türkçe arayüz desteği
 
-Önceden eğitilmiş ImageNet modeli
-1000 farklı nesne sınıfını tanıyabilme
-Top-1 Accuracy: %82.28
-Top-5 Accuracy: %92.41
+📝 Notlar
 
-Vision Transformer (ViT)
+ResNet50 modeli, sadece belirli araç türlerini tespit edecek şekilde filtrelenmiştir.
+Hugging Face Vision Transformer modeli, ilk kullanımda yüklenme süresi gerektirebilir.
+Uygulamanın doğru çalışması için internet bağlantısı gereklidir (model dosyaları ve sınıf etiketleri indirilir).
 
-Hugging Face'in Vision Transformer modeli
-State-of-the-art performans
-Top-1 Accuracy: %84.15
-Top-5 Accuracy: %95.32
+🤝 Katkıda Bulunma
+Bu projeye katkıda bulunmak isterseniz:
 
-Görüntü Ön İşleme
+Bu repoyu fork edin.
+Yeni bir branch oluşturun (git checkout -b feature/yeni-ozellik).
+Değişikliklerinizi commit edin (git commit -am 'Yeni özellik: Açıklama').
+Branch'inizi push edin (git push origin feature/yeni-ozellik).
+Bir Pull Request oluşturun.
 
-Yeniden boyutlandırma (256x256)
-Merkez kırpma (224x224)
-Tensor dönüşümü
-ImageNet normalizasyonu
-
-Proje Yapısı
-goruntu-siniflandirici-gradio/
-├── app.py           # Ana uygulama dosyası
-├── requirements.txt # Gerekli kütüphaneler
-└── README.md        # Proje dokümantasyonu
+📜 Lisans
+Bu proje MIT Lisansı ile lisanslanmıştır.
+📧 İletişim
+Sorularınız veya geri bildirimleriniz için lütfen GitHub profil sayfamdaki iletişim bilgilerini kullanın.
