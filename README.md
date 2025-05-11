@@ -22,8 +22,8 @@ NumPy - Sayısal hesaplamalar için
 Projeyi çalıştırmak için aşağıdaki adımları izleyin:
 
 Bu repoyu klonlayın:
-git clone https://github.com/kullaniciadi/akilli-arac-tanima-sistemi.git
-cd akilli-arac-tanima-sistemi
+git clone https://github.com/GUDULBEY/goruntu-siniflandirici-gradio/tree/main.git
+
 
 Gerekli paketleri yükleyin:
 pip install gradio torch torchvision pillow requests numpy
